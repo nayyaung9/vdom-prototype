@@ -1,5 +1,6 @@
 /** @jsx h */
 
+// helper function
 function h(type, props, ...children) {
   return { type, props, children };
 }
@@ -39,6 +40,7 @@ function updateElement($parent, newNode, oldNode, index = 0) {
   if (!oldNode) {
     $parent.appendChild(createElement(newNode));
   } else if (!newNode) {
+    console.log(index)
     $parent.removeChild($parent.childNodes[index]);
   } else if (changed(newNode, oldNode)) {
     $parent.replaceChild(createElement(newNode), $parent.childNodes[index]);
@@ -62,6 +64,7 @@ const a = (
   <ul>
     <li>item 1</li>
     <li>item 2</li>
+    <li>item 3</li>
   </ul>
 );
 
@@ -69,6 +72,7 @@ const b = (
   <ul>
     <li>item 1</li>
     <li>hello!</li>
+    <li>item 3</li>
   </ul>
 );
 
